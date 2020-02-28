@@ -13,10 +13,10 @@ func getDividesOfTwo(_ number: Int) -> [Int] {
 }
 
 func getMultplesOfTwo(number: Int, length: Int) -> [Int] {
-    return (1..<length).reduce((number, [number])) { accu, _ in
-        let double = 2 * accu.0
-        return (double, accu.1 + [double])
-    }.1
+    return (1..<length).reduce((lastNumber: number, multiples: [number])) { accu, _ in
+        let double = 2 * accu.lastNumber
+        return (double, accu.multiples + [double])
+    }.multiples
 }
 
 func getDividesOfTwoRecursive(_ number: Int, lastNumbers: [Int]) -> [Int] {
